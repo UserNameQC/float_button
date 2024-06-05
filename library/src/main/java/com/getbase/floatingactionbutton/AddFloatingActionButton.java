@@ -15,6 +15,7 @@ import androidx.annotation.DrawableRes;
 
 public class AddFloatingActionButton extends FloatingActionButton {
   int mPlusColor;
+  int mButtonIcon;
 
   public AddFloatingActionButton(Context context) {
     this(context, null);
@@ -77,13 +78,17 @@ public class AddFloatingActionButton extends FloatingActionButton {
       }
     };
 
-    ShapeDrawable drawable = new ShapeDrawable(shape);
+    if (mButtonIcon > 0) {
+      return getResources().getDrawable(mButtonIcon);
+    } else {
+      ShapeDrawable drawable = new ShapeDrawable(shape);
 
-    final Paint paint = drawable.getPaint();
-    paint.setColor(mPlusColor);
-    paint.setStyle(Style.FILL);
-    paint.setAntiAlias(true);
+      final Paint paint = drawable.getPaint();
+      paint.setColor(mPlusColor);
+      paint.setStyle(Style.FILL);
+      paint.setAntiAlias(true);
 
-    return drawable;
+      return drawable;
+    }
   }
 }

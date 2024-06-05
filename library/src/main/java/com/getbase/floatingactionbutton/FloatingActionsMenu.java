@@ -45,6 +45,8 @@ public class FloatingActionsMenu extends ViewGroup {
   private boolean mAddButtonStrokeVisible;
   private int mExpandDirection;
 
+  private int mAddButtonIcon;
+
   private int mButtonSpacing;
   private int mLabelsMargin;
   private int mLabelsVerticalOffset;
@@ -101,6 +103,7 @@ public class FloatingActionsMenu extends ViewGroup {
     mExpandDirection = attr.getInt(R.styleable.FloatingActionsMenu_fab_expandDirection, EXPAND_UP);
     mLabelsStyle = attr.getResourceId(R.styleable.FloatingActionsMenu_fab_labelStyle, 0);
     mLabelsPosition = attr.getInt(R.styleable.FloatingActionsMenu_fab_labelsPosition, LABELS_ON_LEFT_SIDE);
+    mAddButtonIcon = attr.getResourceId(R.styleable.FloatingActionsMenu_fab_menu_icon, 0);
     attr.recycle();
 
     if (mLabelsStyle != 0 && expandsHorizontally()) {
@@ -150,6 +153,7 @@ public class FloatingActionsMenu extends ViewGroup {
       @Override
       void updateBackground() {
         mPlusColor = mAddButtonPlusColor;
+        mButtonIcon = mAddButtonIcon;
         mColorNormal = mAddButtonColorNormal;
         mColorPressed = mAddButtonColorPressed;
         mStrokeVisible = mAddButtonStrokeVisible;
