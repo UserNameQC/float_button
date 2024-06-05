@@ -49,6 +49,8 @@ public class MainActivity extends Activity {
     removeAction.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View v) {
+        FloatingActionsMenu menu = findViewById(R.id.multiple_actions_down);
+        menu.setFloatingMenuButtonIcon(R.mipmap.icon_map);
         ((FloatingActionsMenu) findViewById(R.id.multiple_actions_down)).removeButton(removeAction);
       }
     });

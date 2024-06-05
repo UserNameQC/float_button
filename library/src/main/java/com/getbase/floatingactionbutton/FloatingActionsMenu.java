@@ -22,6 +22,8 @@ import android.view.animation.Interpolator;
 import android.view.animation.OvershootInterpolator;
 import android.widget.TextView;
 
+import java.util.Objects;
+
 import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 
@@ -119,6 +121,11 @@ public class FloatingActionsMenu extends ViewGroup {
 
   private boolean expandsHorizontally() {
     return mExpandDirection == EXPAND_LEFT || mExpandDirection == EXPAND_RIGHT;
+  }
+
+  public void setFloatingMenuButtonIcon(int sourceId) {
+    this.mAddButtonIcon = sourceId;
+    mAddButton.setIconDrawable(Objects.requireNonNull(getContext().getDrawable(sourceId)));
   }
 
   private static class RotatingDrawable extends LayerDrawable {
